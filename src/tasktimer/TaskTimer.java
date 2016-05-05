@@ -49,10 +49,11 @@ public class TaskTimer
         execAndPrint(new Task6());
     }
     public static void execAndPrint(Runnable task){
+    	StopWatch stopWatch = new StopWatch();
     	out.println(task.toString());
-        long starttime = System.nanoTime();
+    	stopWatch.start();
         task.run();
-        long stoptime = System.nanoTime();
-        out.printf("Elapsed time is %f sec\n",(stoptime - starttime)*1.0E-9 );
+        stopWatch.stop();
+        out.printf("Elapsed time is %f sec\n", stopWatch.getElapsed());
     }
 }
